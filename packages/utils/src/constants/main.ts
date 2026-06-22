@@ -1,4 +1,4 @@
-export const SHORT_DOMAIN = "dub.sh";
+export const SHORT_DOMAIN = "links.omkarbirje.com";
 
 export const APP_HOSTNAMES = new Set([
   "app.dub.co",

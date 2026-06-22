@@ -7,7 +7,7 @@ export const POST = withAdmin(async ({ req }) => {
   const { domain } = await req.json();
 
   const remove = await fetch(
-    `https://api.vercel.com/v9/projects/${process.env.VERCEL_PROJECT_ID}/domains/${domain}?teamId=${process.env.TEAM_ID_VERCEL}`,
+    `https://api.vercel.com/v9/projects/${process.env.VERCEL_PROJECT_ID}/domains/${domain}${process.env.TEAM_ID_VERCEL ? `?teamId=${process.env.TEAM_ID_VERCEL}` : ""}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.VERCEL_API_KEY}`,

@@ -25,7 +25,7 @@ export const updateConfig = async ({
   const newData = Array.from(new Set([...existingData, value]));
 
   return await fetch(
-    `https://api.vercel.com/v1/edge-config/${process.env.EDGE_CONFIG_ID}/items?teamId=${process.env.TEAM_ID_VERCEL}`,
+    `https://api.vercel.com/v1/edge-config/${process.env.EDGE_CONFIG_ID}/items${process.env.TEAM_ID_VERCEL ? `?teamId=${process.env.TEAM_ID_VERCEL}` : ""}`,
     {
       method: "PATCH",
       headers: {

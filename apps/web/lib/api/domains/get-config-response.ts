@@ -3,7 +3,7 @@ import { isProxiedDomain } from "./utils";
 
 const getVercelConfigResponse = async (domain: string) => {
   return await fetch(
-    `https://api.vercel.com/v6/domains/${domain.toLowerCase()}/config?teamId=${process.env.TEAM_ID_VERCEL}`,
+    `https://api.vercel.com/v6/domains/${domain.toLowerCase()}/config${process.env.TEAM_ID_VERCEL ? `?teamId=${process.env.TEAM_ID_VERCEL}` : ""}`,
     {
       method: "GET",
       headers: {

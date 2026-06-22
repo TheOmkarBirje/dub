@@ -21,7 +21,7 @@ export const addDomainToVercel = async (
     }
   }
   return await fetch(
-    `https://api.vercel.com/v10/projects/${process.env.VERCEL_PROJECT_ID}/domains?teamId=${process.env.TEAM_ID_VERCEL}`,
+    `https://api.vercel.com/v10/projects/${process.env.VERCEL_PROJECT_ID}/domains${process.env.TEAM_ID_VERCEL ? `?teamId=${process.env.TEAM_ID_VERCEL}` : ""}`,
     {
       method: "POST",
       headers: {

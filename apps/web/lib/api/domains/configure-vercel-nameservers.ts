@@ -4,7 +4,7 @@ export const configureVercelNameservers = async (
   domain: string,
 ): Promise<CustomResponse> => {
   return await fetch(
-    `https://api.vercel.com/v3/domains/${domain}?teamId=${process.env.TEAM_ID_VERCEL}`,
+    `https://api.vercel.com/v3/domains/${domain}${process.env.TEAM_ID_VERCEL ? `?teamId=${process.env.TEAM_ID_VERCEL}` : ""}`,
     {
       method: "PATCH",
       headers: {
