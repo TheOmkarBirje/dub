@@ -1,4 +1,4 @@
-import { EnrolledPartnerProps } from "@/lib/types";
+import { EnrolledPartnerExtendedProps, EnrolledPartnerProps } from "@/lib/types";
 import { RESOURCE_COLORS } from "@/ui/colors";
 import { randomValue } from "@dub/utils";
 import { PartnerGroup } from "@prisma/client";
@@ -495,7 +495,7 @@ describe.sequential("Workflow - MoveGroup", async () => {
 
     // Get the current group of E2E_PARTNER
     const { data: partner, status: partnerStatus } =
-      await http.get<EnrolledPartnerProps>({
+      await http.get<EnrolledPartnerExtendedProps>({
         path: `/partners/${E2E_PARTNER.id}`,
       });
 
@@ -547,7 +547,7 @@ describe.sequential("Workflow - MoveGroup", async () => {
       expectedGroupId: partner.groupId!,
     });
 
-    const { data: partnerAfter } = await http.get<EnrolledPartnerProps>({
+    const { data: partnerAfter } = await http.get<EnrolledPartnerExtendedProps>({
       path: `/partners/${partner.id}`,
     });
 

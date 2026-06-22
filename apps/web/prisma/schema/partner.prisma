@@ -120,7 +120,9 @@ model Partner {
   @@index(identityVerifiedAt)
   @@index(referredByPartnerId)
   @@index(tremendousEmail)
-  @@fulltext([email, name, companyName]) // For full-text search
+  @@fulltext([email])
+  @@fulltext([name])
+  @@fulltext([companyName])
 }
 
 model PartnerInvite {

@@ -29,5 +29,6 @@ model SubmittedLead {
   @@index([programId, partnerId])
   @@index(partnerId)
   @@index(customerId)
-  @@fulltext([email, name])
+  @@fulltext([email])
+  @@fulltext([name])
 }
