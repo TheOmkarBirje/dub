@@ -12,7 +12,7 @@ import { sendPaypalPayouts } from "./send-paypal-payouts";
 import { getFundSettlementTiming, scheduleDelayedPayouts } from "./utils";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 600; // This function can run for a maximum of 10 minutes
+export const maxDuration = 60; // This function can run for a maximum of 60 seconds
 
 const payloadSchema = z.object({
   invoiceId: z.string(),
