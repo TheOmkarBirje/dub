@@ -40,6 +40,7 @@ module.exports = withPlausibleProxy({
     ],
   },
   experimental: {
+    webpackBuildWorker: true,
     optimizePackageImports: [
       "@dub/email",
       "@dub/ui",
@@ -52,6 +53,8 @@ module.exports = withPlausibleProxy({
     },
   },
   webpack: (config, { webpack, isServer }) => {
+    config.cache = false;
+
     if (isServer) {
       config.plugins.push(
         // mute errors for unused typeorm deps
