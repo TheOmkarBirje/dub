@@ -31,10 +31,7 @@ module.exports = withPlausibleProxy({
     ignoreDuringBuilds: true,
   },
   transpilePackages: [
-    "prettier",
-    "shiki",
     "@dub/email",
-    "@boxyhq/saml-jackson",
   ],
   outputFileTracingIncludes: {
     "/api/auth/saml/token": [
