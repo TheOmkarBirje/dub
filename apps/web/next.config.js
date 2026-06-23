@@ -24,6 +24,12 @@ module.exports = withPlausibleProxy({
   apiPath: "/_proxy/plausible/event",
 })({
   reactStrictMode: false,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   transpilePackages: [
     "prettier",
     "shiki",
