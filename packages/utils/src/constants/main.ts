@@ -13,31 +13,30 @@ const appDomainHostname = process.env.NEXT_PUBLIC_APP_DOMAIN
   ? getHostname(process.env.NEXT_PUBLIC_APP_DOMAIN)
   : null;
 
+const vercelHostname = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? getHostname(process.env.NEXT_PUBLIC_VERCEL_URL)
+  : null;
+
 export const APP_HOSTNAMES = new Set([
   "app.dub.co",
   "preview.dub.co",
   "localhost:8888",
   "localhost",
   ...(appDomainHostname ? [appDomainHostname] : []),
+  ...(vercelHostname ? [vercelHostname] : []),
 ]);
 
 export const APP_DOMAIN =
   process.env.NEXT_PUBLIC_APP_DOMAIN ||
-  (process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://app.dub.co"
-    : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
-      ? "https://preview.dub.co"
-      : "http://localhost:8888");
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:8888");
 
 export const APP_DOMAIN_WITH_NGROK =
   process.env.NEXT_PUBLIC_APP_DOMAIN ||
-  (process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://app.dub.co"
-    : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
-      ? process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "https://preview.dub.co"
-      : process.env.NEXT_PUBLIC_NGROK_URL || "http://localhost:8888");
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_NGROK_URL || "http://localhost:8888");
 
 export const API_HOSTNAMES = new Set([
   "api.dub.co",
